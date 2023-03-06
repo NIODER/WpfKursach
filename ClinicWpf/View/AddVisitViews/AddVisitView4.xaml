@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="ClinicWpf.View.AddVisitViews.AddVisitView4"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClinicWpf.View.AddVisitViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding AddVisitViewModel, Source={StaticResource Locator}}">
+    <StackPanel>
+        <WrapPanel>
+            <ListView Height="150" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"
+                  ItemsSource="{Binding FreeShedules}" SelectedItem="{Binding ChosenShedule}"
+                  HorizontalAlignment="Left" Width="400">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock><Run Text="{Binding VisitStartTime.TimeOfDay, Mode=OneWay}" /><LineBreak /><Run Text="{Binding VisitStartTime.DayOfWeek, Mode=OneWay}" /></TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBox Width="400" GotFocus="TextBox_GotFocus" Text="{Binding Complaint}" Height="150"/>
+        </WrapPanel>
+        <TextBlock Style="{StaticResource Header2}"><Run Text="Запись:"/></TextBlock>
+        <TextBlock><Run Style="{StaticResource RunText2}" Text="Отделение:"/><Run Text=" "/><Run Style="{StaticResource RunText1}" Text="{Binding ChosenBranch.Name, Mode=OneWay}" /><LineBreak /><Run Style="{StaticResource RunText2}" Text="Специальность врача:"/><Run Text=" "/><Run Style="{StaticResource RunText1}" Text="{Binding ChosenSpeciality, Mode=OneWay}" /><LineBreak /><Run Style="{StaticResource RunText2}" Text="Дата:"/><Run Text=" "/><Run Style="{StaticResource RunText1}" Text="{Binding ChosenShedule.VisitStartTime.DayOfWeek, Mode=OneWay}" /><LineBreak /><Run Style="{StaticResource RunText1}" Text="{Binding ChosenShedule.VisitStartTime, Mode=OneWay}" /><LineBreak /><Run Style="{StaticResource RunText2}" Text="ФИО врача:"/><Run Text=" "/><Run Style="{StaticResource RunText1}" Text="{Binding ChosenDoctor.Fullname, Mode=OneWay}" /><LineBreak /><Run Style="{StaticResource RunText2}" Text="Адрес:"/><Run Text=" "/><Run Style="{StaticResource RunText1}" Text="{Binding ChosenBranch.Address, Mode=OneWay}" /></TextBlock>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="ClinicWpf.View.AddVisitViews.AddVisitView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClinicWpf.View.AddVisitViews"
+             xmlns:vm="clr-namespace:ClinicWpf.ViewModel.AddVisitViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding AddVisitViewModel, Source={StaticResource Locator}}">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type vm:AddVisitViewModel1}">
+            <local:AddVisitView1 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddVisitViewModel2}">
+            <local:AddVisitView2 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddVisitViewModel3}">
+            <local:AddVisitView3 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddVisitViewModel4}">
+            <local:AddVisitView4 />
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid Margin="10,0,0,0">
+        <TextBlock Style="{StaticResource Header1}" Margin="20,10,0,0">Новая запись</TextBlock>
+        <ContentPresenter Content="{Binding CurrentDialogView , Mode=TwoWay}" Margin="10,46,10,55" />
+        <Button Style="{StaticResource Button1}" Margin="20,0,0,20"
+                VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                Command="{Binding PreviousCommand}">Назад</Button>
+        <Button Style="{StaticResource Button1}" Margin="0,0,30,20"
+                VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Command="{Binding NextCommand}" Content="{Binding NextButtonText}"/>
+    </Grid>
+</UserControl>

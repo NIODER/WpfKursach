@@ -1,0 +1,20 @@
+﻿<Window x:Class="ClinicWpf.View.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClinicWpf.View"
+        xmlns:vm="clr-namespace:ClinicWpf.ViewModel"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="400"
+        DataContext="{Binding LoginVM, Mode=OneWay, Source={StaticResource Locator}}">
+    <StackPanel>
+        <Label FontSize="20" FontFamily="Calibri" HorizontalContentAlignment="Center" Margin="0, 20, 0, 0">Вход</Label>
+        <TextBlock FontSize="16" FontFamily="Calibri" Margin="0, 20, 0, 0" HorizontalAlignment="Center">Логин</TextBlock>
+        <TextBox FontSize="14" FontFamily="Calibri" Margin="0, 10, 0, 0" HorizontalContentAlignment="Center" Text="{Binding Login}"></TextBox>
+        <TextBlock FontSize="16" FontFamily="Calibri" Margin="0, 20, 0, 0" HorizontalAlignment="Center">Пароль</TextBlock>
+        <PasswordBox FontSize="14" FontFamily="Calibri" Margin="0, 10, 0, 0" HorizontalContentAlignment="Center" PasswordChanged="OnPasswordChanged"></PasswordBox>
+        <Button FontSize="14" FontFamily="Calibri" Margin="0, 10, 0, 0" Width="100" Command="{Binding LoginCommand}">Войти</Button>
+        <Button FontSize="14" FontFamily="Calibri" Margin="0,150,0,0" Width="150" Command="{Binding RegistrateCommand}">Зарегистрироваться</Button>
+    </StackPanel>
+</Window>
